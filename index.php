@@ -4,7 +4,7 @@ require "model/connect-db.php";
 
 if(!isset($_GET['procurar'])){
     $sql = "SELECT * FROM produtos";
-}elseif(isset($_GET['procurar'])){
+}else if(isset($_GET['procurar'])){
     $search = $_GET['search'];
     $sql = "SELECT * FROM produtos WHERE nome LIKE '%$search%'";
 }else{
@@ -41,16 +41,15 @@ $result = $conn->query($sql);
             </ul>
         </div>
 <?php
-    }else{
+    } else {
         require "model/connect-db.php";
         if(isset($_SESSION['token_auth'])) {
             $user = $_SESSION['token_auth'];
             $sql1 = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
-        }elseif(isset($_SESSION['token_authAdmin'])){
+        }else if(isset($_SESSION['token_authAdmin'])){
             $user = 'admin';
             $sql1 = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
         }
-
         $result1 = $conn->query($sql1);
         $row1 = $result1->fetch_assoc();
 ?>

@@ -23,7 +23,7 @@ if(isset($entrar)){
       } else {
         header("location: ../view/cadastrar.php");
       }
-    }else{
+    } else {
 ?>
 
     <div>
@@ -33,7 +33,7 @@ if(isset($entrar)){
 
 <?php
     }
-  }else{
+  } else {
 ?>
 
     <div>
@@ -43,7 +43,7 @@ if(isset($entrar)){
 
 <?php
   }
-}else{
+} else {
   header('location: ../index.php');
 }
 ?>

@@ -21,23 +21,22 @@ if(isset($entrar)){
             if($usuario == $row1['usuario'] && $senha == $row1['senha']){
                 $_SESSION['token_authAdmin'] = md5($senha);
                 header("location: redirect.php");
-            }
-            elseif($row['senha'] == $senha){
+            } else if($row['senha'] == $senha){
                 $_SESSION['token_auth'] = $usuario;
                 header("location: redirect.php");
-            }else{
+            } else {
                 $_SESSION['senhaIncorreta'] = '123';
                 header('location: ../view/login.php');
             }
-        }else{
+        } else {
             $_SESSION['userNo'] = '123';
             header('location: ../view/login.php');
         }
-    }else{
+    } else {
         $_SESSION['loginFeito'] = '123';
         header('location: ../view/login.php');
     }
-}else{
+} else {
     header('location: ../index.php');
 }
 ?>

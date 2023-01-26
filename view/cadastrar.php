@@ -27,16 +27,15 @@
             </ul>
         </div>
 <?php
-    }else{
+    } else {
         require "../model/connect-db.php";
         if(isset($_SESSION['token_auth'])) {
             $user = $_SESSION['token_auth'];
             $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
-        }elseif(isset($_SESSION['token_authAdmin'])){
+        }else if(isset($_SESSION['token_authAdmin'])){
             $user = 'admin';
             $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
         }
-
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 ?>
@@ -59,8 +58,6 @@
     }
 ?>
     </nav>
-
-
     <main>
         <div id="cadastro-box">
             <form action="../controller/cadastro.php" method="post" id="form-cadastro">
@@ -107,8 +104,5 @@
             </form>
         </div>
     </main>
-    <footer>
-    <!--front-end-->
-    </footer>
 </body>
 </html>
